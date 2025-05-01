@@ -10,6 +10,7 @@ public class AverageSalary {
         Map<String, Double> avgSalaryOfDepart = employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary)));
         Set<Map.Entry<String,Double>> entrySet = avgSalaryOfDepart.entrySet();
+        System.out.println("Average salary Each Department: .....");
         for(Map.Entry<String,Double> entry : entrySet){
             System.out.println(entry.getKey() +":"+ entry.getValue());
         }
@@ -25,5 +26,12 @@ public class AverageSalary {
         System.out.println("Department :"+ youngestEmployee.getDepartment());
         System.out.println("YearOfJoining : " + youngestEmployee.getYearOfJoining());
         System.out.println("Salary : "+ youngestEmployee.getSalary());
+        System.out.println();
+
+        //What is the average salary of male and female employees?
+        Map<String,Double> averageSalaryMaleFemale = employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getGender,Collectors.averagingDouble(Employee::getSalary)));
+        System.out.println("Average Salary of Male and Female.....");
+        System.out.println(averageSalaryMaleFemale);
     }
 }
