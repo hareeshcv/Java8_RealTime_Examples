@@ -9,7 +9,8 @@ public class MaleFemaleEmpList {
 
         //How many male and female employees are there in the organization?
         List<Employee> employeeList = EmployeeList.getEmployeeList();
-        Map<String, Long> maleFemaleList = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+        Map<String, Long> maleFemaleList = employeeList.stream().
+                collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
         System.out.println("Male And Female count: "+ maleFemaleList);
 
         //Print the name of all departments in the organization?
